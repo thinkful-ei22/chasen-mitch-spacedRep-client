@@ -24,6 +24,7 @@ export class LoginForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                <legend>Login</legend>
                 {error}
                 <label htmlFor="username">Username</label>
                 <Field
@@ -42,7 +43,7 @@ export class LoginForm extends React.Component {
                     validate={[required, nonEmpty]}
                 />
                 <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
+                    Start Learning
                 </button>
             </form>
         );
