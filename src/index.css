@@ -113,3 +113,13 @@ label, input {
 .question-img img{
   max-width: 320px;
 }
+.instructions{
+  border: black solid 1px;
+  width: 60%;
+  margin: auto;
+}
+.instruction-list li{
+  list-style-type: none;
+  text-align: justify;
+  padding: 5px;
+};

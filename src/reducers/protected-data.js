@@ -6,7 +6,7 @@ import {BACK_TO_DASH, TO_INSTRUCTIONS} from '../actions/questions';
 const initialState = {
     data: '',
     error: null,
-    instructions: false
+    instructions: true
 };
 
 export default function reducer(state = initialState, action) {
