@@ -8,9 +8,9 @@ class Answer extends React.Component{
     if(this.props.answer){
       return(
         <div className='answer-component component clearfix'>
-          <div>Your answer: {this.props.userGuess}</div>
-          <div>Solution:{this.props.question.answer}</div>
-          <div>Explanation:{this.props.question.answerExplanation}</div>
+          <p>Your answer: {this.props.userGuess}</p>
+          <p>Solution:{this.props.question.answer}</p>
+          <p>Explanation:{this.props.question.answerExplanation}</p>
           <button>
             NEXT
           </button>

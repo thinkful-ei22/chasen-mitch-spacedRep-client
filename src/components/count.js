@@ -7,7 +7,7 @@ function Count(props){
       {/* ////need to add jsx to keep track currrent streak */}
       <p>Current Streak: 0</p>
     </div>
-  )
+  );
 }
 
 export default connect()(Count);
