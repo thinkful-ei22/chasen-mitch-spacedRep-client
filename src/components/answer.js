@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {sendAnswer} from '../actions/questions'
+import {sendAnswer} from '../actions/questions';
+import './answer.css';
 
 class Answer extends React.Component{
   render(){
@@ -14,7 +15,7 @@ class Answer extends React.Component{
             NEXT
           </button>
         </div>
-      )
+      );
     }else{
       return (
         <div className='answer-component component clearfix'>
@@ -33,15 +34,15 @@ class Answer extends React.Component{
             <button className= 'answer-button' type='submit'>Submit Answer</button>
           </form>
         </div>
-      )
+      );
     }
-  };
+  }
 }
 
 const mapStateToProps= state => ({
   answer: state.questions.answer,
   question: state.questions.question,
   userGuess: state.questions.userGuess
-})
+});
 
 export default connect(mapStateToProps)(Answer);

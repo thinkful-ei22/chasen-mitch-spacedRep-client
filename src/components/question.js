@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import './question.css';
 
 function Question(props){
   return (
@@ -9,10 +10,10 @@ function Question(props){
         <img src={props.question.questionDiagram} />
       </div>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = state => ({
   question: state.questions.question
-})
+});
 export default connect(mapStateToProps)(Question);

@@ -1,3 +1,10 @@
+:root{
+  --palegold: #DCC48E;
+  --eggshell: #EAEFD3;
+  --ashgrey: #B3C0A4;
+  --independence: #505168;
+  --gunmetal: #27233A;
+}
 *{
   box-sizing: border-box;
 }
@@ -7,6 +14,14 @@ body {
   font-family: sans-serif;
   text-align: center;
   margin: auto;
+  color: var(--eggshell);
+  background: linear-gradient(to bottom, var(--gunmetal) 0%,var(--independence) 50%,var(--gunmetal) 100%);
+}
+button {
+  background: linear-gradient(to bottom, var(--independence) 0%,#828c95 36%,var(--independence) 100%);
+  border-radius: 50px;
+  color: var(--eggshell);
+  border-color: var(--gunmetal);
 }
 h1{
   text-align: center;
