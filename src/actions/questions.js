@@ -10,6 +10,12 @@ export const backToDash = ()=>({
     type: BACK_TO_DASH
 });
 
+export const TOGGLE_PROGRESS= 'TOGGLE_PROGRESS';
+export const toggleProgress = boolean =>({
+    type: TOGGLE_PROGRESS,
+    boolean
+});
+
 export const ANSWER_REQUEST= 'ANSWER_REQUEST';
 export const answerRequest = ()=>({
     type: ANSWER_REQUEST
@@ -25,43 +31,43 @@ export const answerFailure = error =>({
     error
 });
 
-export const SEND_ANSWER= 'SEND_ANSWER'   ////temporary for use on front////
-export const sendAnswer = userGuess =>({
-    type: SEND_ANSWER,
-    userGuess
+export const SEND_SUCCESS= 'SEND_SUCCESS'   ////temporary for use on front////
+export const sendSuccess = userGuess =>({
+    type: SEND_SUCCESS,
+    userGuess   ///correct true false, progress
 });
 
-// export const sendAnswer = userGuess => {
-//     const authToken = getState().auth.authToken;
-//     dispatch(AnswerRequest());
-//     return fetch(`${API_BASE_URL}/api/answer`, {
-//         method: 'GET',
-//         headers:{
-//             'Authorization': `Bearer ${authToken}`,
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             userGuess
-//         })
-//     })
-//     .then(res =>{
-//         if(!res.ok){
-//             return Promise.reject({
-//                 message:'Response Not Okay',
-//                 status: res.status,
-//                 statusText: res.statusText
-//             })
-//         }
-//         return res.json();
-//     })
-//     .then(result => {
-//         return dispatch(answerSuccess(result));
-//     })
-//     .catch(err => {
-//         console.log('ERR', err);
-//         return dispatch(answerFailure(err.statusText));
-//     })
-// }
+export const sendAnswer = userGuess => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    dispatch(answerRequest());
+    return fetch(`${API_BASE_URL}/api/answer`, {
+        method: 'POST',
+        headers:{
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userGuess
+        })
+    })
+    .then(res =>{
+        if(!res.ok){
+            return Promise.reject({
+                message:'Response Not Okay',
+                status: res.status,
+                statusText: res.statusText
+            })
+        }
+        return res.json();
+    })
+    .then(result => {
+        return dispatch(answerSuccess(result));
+    })
+    .catch(err => {
+        console.log('ERR', err);
+        return dispatch(answerFailure(err.statusText));
+    })
+}
 
 
 
@@ -70,8 +76,9 @@ export const findQuestionRequest = ()=>({
     type: FIND_QUESTION_REQUEST
 });
 export const FIND_QUESTION_SUCCESS= 'FIND_QUESTION_SUCCESS';
-export const findQuestionSuccess = () =>({
-    type: FIND_QUESTION_SUCCESS
+export const findQuestionSuccess = question =>({
+    type: FIND_QUESTION_SUCCESS,
+    question
 });
 export const FIND_QUESTION_FAILURE= 'FIND_QUESTION_FAILURE';
 export const findQuestionFailure = error =>({

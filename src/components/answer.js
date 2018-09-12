@@ -1,17 +1,34 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {sendAnswer} from '../actions/questions';
+import {sendAnswer, fetchQuestion} from '../actions/questions';
 import './answer.css';
 
 class Answer extends React.Component{
+
+  handleNext(){
+    console.log('next clicked');
+    this.props.dispatch(fetchQuestion);
+  }
+
   render(){
+
+    let feedback;
+    if(this.props.userGuess.correct){
+      feedback = <p className='correct'>Correct!</p>
+    }else{
+      feedback = <p className='incorrect'>Incorrect</p>
+    }
+
     if(this.props.answer){
       return(
         <div className='answer-component component clearfix'>
+          {feedback}
           <p>Your answer: {this.props.userGuess}</p>
           <p>Solution:{this.props.question.answer}</p>
           <p>Explanation:{this.props.question.answerExplanation}</p>
-          <button>
+          <button 
+            onClick={()=> this.handleNext()}
+          >
             NEXT
           </button>
         </div>
