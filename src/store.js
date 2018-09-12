@@ -5,13 +5,16 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+import questionsReducer from './reducers/questions';
 
 const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
+        questions: questionsReducer,
         protectedData: protectedDataReducer
     }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     applyMiddleware(thunk)
 );
 

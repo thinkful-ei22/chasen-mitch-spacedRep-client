@@ -1,15 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export function Question(props){
+function Question(props){
   return (
     <div className='question-component component clearfix'>
-      <p className='question'>What type of Data Structure is this?</p>
+      <p className='question'>{props.question.question}</p>
       <div className='question-img'>
-        <img src='https://www.geeksforgeeks.org/wp-content/uploads/gq/2013/03/Linkedlist.png' />
+        <img src={props.question.questionDiagram} />
       </div>
     </div>
   )
 }
 
-export default connect()(Question);
+const mapStateToProps = state => ({
+  question: state.questions.question
+})
+export default connect(mapStateToProps)(Question);

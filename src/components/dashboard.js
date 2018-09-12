@@ -2,15 +2,20 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
-import { HeaderBar } from './header-bar';
-import { Count } from './count';
-import { Instructions } from './instructions';
-import { Question } from './question';
-import { Answer } from './answer';
+import {toInstructions} from '../actions/questions';
 
-export class Dashboard extends React.Component {
+import Count from './count';
+import Instructions from './instructions';
+import Question from './question';
+import Answer  from './answer';
+
+class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        // this.props.dispatch(fetchProtectedData());
+    }
+
+    handleInstructions(){
+        this.props.dispatch(toInstructions());
     }
 
     render() {
@@ -18,7 +23,7 @@ export class Dashboard extends React.Component {
         if(this.props.loggedIn && this.props.instructions === false){
             instructionsButton = (
                 <button 
-                    // onClick={() => this.logOut()}
+                    onClick={() => this.handleInstructions()}
                 >
                 Instructions
                 </button>
@@ -51,7 +56,7 @@ const mapStateToProps = state => {
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
         loggedIn: state.auth.currentUser !== null,
-        instructions: state.protectedData.instructions
+        instructions: state.questions.instructions
     };
 };
 

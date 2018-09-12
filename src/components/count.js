@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export function Count(props){
+function Count(props){
   return (
     <div className='count clearfix'>
       {/* ////need to add jsx to keep track currrent streak */}

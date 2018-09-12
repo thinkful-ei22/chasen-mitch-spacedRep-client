@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {backToDash} from '../actions/questions';
 
-export function Instructions(props) {
+
+function Instructions(props) {
   return(
     <div className='instructions'>
       <h2>HOW TO PLAY</h2>
@@ -16,10 +18,8 @@ export function Instructions(props) {
         <li>We hope you enjoy learning Data Structures and Algorithms</li>
       </ul>
       <button
-        type='submit'
         onClick={()=>{
-          console.log('back clicked');
-          // props.dispatch(backToDash());
+          props.dispatch(backToDash());
         }}
       > 
         Back
@@ -27,5 +27,8 @@ export function Instructions(props) {
     </div>
   )
 }
+const mapStateToProps = state => ({
+  instructions: state.questions.instructions
+})
 
-export default connect()(Instructions);
+export default connect(mapStateToProps)(Instructions);
