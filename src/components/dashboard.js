@@ -8,6 +8,7 @@ import Count from './count';
 import Instructions from './instructions';
 import Question from './question';
 import Answer  from './answer';
+import Finish from './finish';
 
 class Dashboard extends React.Component {
     componentDidMount() {
@@ -44,6 +45,7 @@ class Dashboard extends React.Component {
                     </div>   
                     <Question />    
                     <Answer />
+                    <Finish />
                 </div>
         )};
     }
