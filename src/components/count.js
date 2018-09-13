@@ -9,7 +9,7 @@ class Count extends React.Component {
   }
 
   render(){
-
+    console.log(this.props.user);  ///////not printing anything may need a dispatch to fetch the progress?/////
     if(!this.props.progress){
       return(
         <div className='count clearfix'>
@@ -27,7 +27,7 @@ class Count extends React.Component {
       return(
         <div className='count clearfix'>
           {/* ////need to add jsx to keep track currrent streak */}
-          <p className='progress'>{this.props.userGuess.progress}</p>
+          <p className='progress'>{this.props.guess.progress}</p>
           <button 
             className='progress-btn'
             onClick={()=> this.handleProgress(false)}
@@ -43,8 +43,9 @@ class Count extends React.Component {
 }
 
 const mapStateToProps= state => ({
-  userGuess: state.questions.userGuess,
-  progress: state.questions.progress
+  user: state.questions.user,
+  progress: state.questions.progress,
+  
 });
 
 export default connect(mapStateToProps)(Count);

@@ -4,28 +4,36 @@ import {sendAnswer, fetchQuestion} from '../actions/questions';
 import './answer.css';
 
 class Answer extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      userGuess: null
+    }
+  }
 
   handleNext(){
     console.log('next clicked');
-    this.props.dispatch(fetchQuestion);
+    this.props.dispatch(fetchQuestion());
   }
 
   render(){
 
     let feedback;
-    if(this.props.userGuess.correct){
+    if(this.props.guess){
       feedback = <p className='correct'>Correct!</p>
     }else{
       feedback = <p className='incorrect'>Incorrect</p>
     }
 
+
+
     if(this.props.answer){
       return(
         <div className='answer-component component clearfix'>
           {feedback}
-          <p>Your answer: {this.props.userGuess}</p>
-          <p>Solution:{this.props.question.answer}</p>
-          <p>Explanation:{this.props.question.answerExplanation}</p>
+          <p>Your answer: {this.state.userGuess}</p>  
+          <p>Solution:{this.props.question.answer}</p>  
+          <p>Explanation:{this.props.question.explanation}</p> 
           <button 
             onClick={()=> this.handleNext()}
           >
@@ -40,9 +48,10 @@ class Answer extends React.Component{
             className='answer-form'
             onSubmit={e=>{
               e.preventDefault();
-              const userGuess= e.target.userAnswer.value.toLowerCase().trim();
-              console.log(userGuess);
-              this.props.dispatch(sendAnswer(userGuess));
+              const guess= e.target.userAnswer.value.toLowerCase().trim();
+              this.setState({userGuess: guess});
+              console.log(guess);
+              this.props.dispatch(sendAnswer(guess));
               e.target.userAnswer.value ='';
             }}
           >
@@ -59,7 +68,7 @@ class Answer extends React.Component{
 const mapStateToProps= state => ({
   answer: state.questions.answer,
   question: state.questions.question,
-  userGuess: state.questions.userGuess
+  guess: state.questions.guess
 });
 
 export default connect(mapStateToProps)(Answer);

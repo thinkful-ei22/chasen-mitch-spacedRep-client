@@ -12,17 +12,14 @@ import {
 }  from '../actions/questions';
 
 const initialState = {
-  progress: false,
-  instructions: false,
-  question:{
-    question: 'what is this? [head][next]->[val][next]->[val][null]',
-    questionDiagram: 'https://www.geeksforgeeks.org/wp-content/uploads/gq/2013/03/Linkedlist.png',
-    answer: 'linked list', 
-    answerExplanation: 'this is the definition of linked list'
-  },
-  userGuess: {progress: `10/12 questions`, correct: true}, ///going to have progress, and correct key boolean to determine feedback;
-  answer:false,
-  error: null
+  progress: false,  //tracking if progress should be displayed
+  instructions: false, //tracking if instruction should be displayed
+  question:{}, /// looks like==={question: "2", answer: "b", explanation: "z", id: "5b9ad03ffe4c2e1a650f896f"}
+  user:{}, ////keys: created, email, head, id, progress, questions{memval, attempts, solved, _id}
+  guess: {}, ///going to have progress, and correct key boolean to determine feedback;
+  answer:false,  //makes answer form change to correct or incorrect feedback;
+  error: null,
+  loading: false
 };
 
 export default function questionsReducer(state = initialState, action) {
@@ -45,7 +42,7 @@ export default function questionsReducer(state = initialState, action) {
   }else if (action.type === ANSWER_SUCCESS){
     return Object.assign({}, state, {
       loading: false,
-      userGuess: action.userGuess,
+      guess: action.guess,
       answer: true
     });
   }else if (action.type === ANSWER_FAILURE){
@@ -56,7 +53,7 @@ export default function questionsReducer(state = initialState, action) {
   }else if(action.type === FIND_QUESTION_SUCCESS){
     return Object.assign({}, state, {
       question: action.question,
-      answer: true,
+      answer: false,
       loading: false
     });
   }else if(action.type === FIND_QUESTION_REQUEST){

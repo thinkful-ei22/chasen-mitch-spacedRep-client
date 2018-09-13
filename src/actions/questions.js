@@ -21,9 +21,10 @@ export const answerRequest = ()=>({
     type: ANSWER_REQUEST
 });
 export const ANSWER_SUCCESS= 'ANSWER_SUCCESS';
-export const answerSuccess = userGuess =>({
+export const answerSuccess = (guess, user) =>({
     type: ANSWER_SUCCESS,
-    userGuess
+    guess,
+    user
 });
 export const ANSWER_FAILURE= 'ANSWER_FAILURE';
 export const answerFailure = error =>({
@@ -31,24 +32,24 @@ export const answerFailure = error =>({
     error
 });
 
-export const SEND_SUCCESS= 'SEND_SUCCESS'  ///only for front/////
-export const sendSuccess = userGuess =>({
-    type: SEND_SUCCESS,
-    userGuess   ///correct true false, progress
-});
+// export const SEND_SUCCESS= 'SEND_SUCCESS'  ///only for front/////
+// export const sendSuccess = userGuess =>({
+//     type: SEND_SUCCESS,
+//     userGuess   ///correct true false, progress
+// });
 
 /// sending the userAnswer when click submit///// need a response with a correct: boolean, and progress
-export const sendAnswer = userGuess => (dispatch, getState) => {
+export const sendAnswer = guess => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(answerRequest());
-    return fetch(`${API_BASE_URL}/api/answer`, {
+    return fetch(`${API_BASE_URL}/questions`, {
         method: 'POST',
         headers:{
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            userGuess
+            guess
         })
     })
     .then(res =>{
@@ -59,10 +60,11 @@ export const sendAnswer = userGuess => (dispatch, getState) => {
                 statusText: res.statusText
             })
         }
+        
         return res.json();
     })
     .then(result => {
-        return dispatch(answerSuccess(result));
+        return dispatch(answerSuccess(result.feedback, result.user));
     })
     .catch(err => {
         console.log('ERR', err);
@@ -92,7 +94,7 @@ export const findQuestionFailure = error =>({
 export const fetchQuestion = () => (dispatch, getState) =>{
     const authToken = getState().auth.authToken;
     dispatch(findQuestionRequest());
-    return fetch(`${API_BASE_URL}/api/questions`, {
+    return fetch(`${API_BASE_URL}/questions`, {
         method: 'GET',
         headers:{
             'Authorization': `Bearer ${authToken}`,

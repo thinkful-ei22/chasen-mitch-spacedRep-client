@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+
+////need a dispatch for resting the stats///////
 function Finish(props){
   return (
     <div>

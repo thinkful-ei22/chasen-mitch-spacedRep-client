@@ -1,18 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
-import {toInstructions} from '../actions/questions';
+import {toInstructions, fetchQuestion} from '../actions/questions';
 
 import Count from './count';
 import Instructions from './instructions';
 import Question from './question';
 import Answer  from './answer';
 import Finish from './finish';
+// import fetchQuestion from '../actions/questions'
 
 class Dashboard extends React.Component {
     componentDidMount() {
-        // this.props.dispatch(fetchProtectedData());
+        this.props.dispatch(fetchQuestion());
     }
 
     handleInstructions(){
@@ -48,8 +48,8 @@ class Dashboard extends React.Component {
                     <Finish />
                 </div>
         )};
-    }
-}
+    };
+};
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;

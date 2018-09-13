@@ -6,8 +6,6 @@ import App from './components/app';
 import store from './store';
 import './index.css';
 
-import Count from './components/count';
-import Dashboard from './components/dashboard';
 
 ReactDOM.render(
     <Provider store={store}>
