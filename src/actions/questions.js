@@ -31,12 +31,13 @@ export const answerFailure = error =>({
     error
 });
 
-export const SEND_SUCCESS= 'SEND_SUCCESS'   ////temporary for use on front////
+export const SEND_SUCCESS= 'SEND_SUCCESS'  ///only for front/////
 export const sendSuccess = userGuess =>({
     type: SEND_SUCCESS,
     userGuess   ///correct true false, progress
 });
 
+/// sending the userAnswer when click submit///// need a response with a correct: boolean, and progress
 export const sendAnswer = userGuess => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(answerRequest());
@@ -86,6 +87,7 @@ export const findQuestionFailure = error =>({
     error
 });
 
+///needs to be called upon login/// needs to be called with each next button/// return a question for user
 
 export const fetchQuestion = () => (dispatch, getState) =>{
     const authToken = getState().auth.authToken;
