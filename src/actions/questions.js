@@ -39,6 +39,7 @@ export const answerFailure = error =>({
 // });
 
 /// sending the userAnswer when click submit///// need a response with a correct: boolean, and progress
+
 export const sendAnswer = guess => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(answerRequest());
@@ -58,7 +59,7 @@ export const sendAnswer = guess => (dispatch, getState) => {
                 message:'Response Not Okay',
                 status: res.status,
                 statusText: res.statusText
-            })
+            });
         }
         
         return res.json();
@@ -69,8 +70,8 @@ export const sendAnswer = guess => (dispatch, getState) => {
     .catch(err => {
         console.log('ERR', err);
         return dispatch(answerFailure(err.statusText));
-    })
-}
+    });
+};
 
 
 
@@ -107,7 +108,7 @@ export const fetchQuestion = () => (dispatch, getState) =>{
                 message:'Response Not Okay',
                 status: res.status,
                 statusText: res.statusText
-            })
+            });
         }
         return res.json();
     })
@@ -117,5 +118,5 @@ export const fetchQuestion = () => (dispatch, getState) =>{
     .catch(err => {
         console.log('ERR', err);
         return dispatch(findQuestionFailure(err.statusText));
-    })
-}
+    });
+};
