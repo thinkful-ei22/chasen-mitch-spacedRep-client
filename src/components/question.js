@@ -6,9 +6,6 @@ function Question(props){
   return (
     <div className='question-component component clearfix'>
       <p className='question'>{props.question.question}</p>
-      <div className='question-img'>
-        <img src={props.question.image} alt='question'/>
-      </div>
     </div>
   );
 }

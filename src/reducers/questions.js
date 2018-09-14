@@ -7,7 +7,11 @@ import {
   FIND_QUESTION_FAILURE,
   ANSWER_REQUEST,
   ANSWER_SUCCESS,
-  ANSWER_FAILURE
+  ANSWER_FAILURE,
+  FINISH_SUCCESS,
+  FINISH_FAILURE,
+  GET_PROGRESS_SUCCESS,
+  GET_PROGRESS_FAILURE
 
 }  from '../actions/questions';
 
@@ -19,7 +23,8 @@ const initialState = {
   guess: {}, ///going to have progress, and correct key boolean to determine feedback;
   answer:false,  //makes answer form change to correct or incorrect feedback;
   error: null,
-  loading: false
+  loading: false,
+  userProgress:[]
 };
 
 export default function questionsReducer(state = initialState, action) {
@@ -35,6 +40,14 @@ export default function questionsReducer(state = initialState, action) {
     return Object.assign({}, state, {
         progress: action.boolean
     });
+  }else if (action.type === GET_PROGRESS_SUCCESS) {
+      return Object.assign({}, state, {
+          userProgress: action.userProgress
+      });
+  }else if (action.type === GET_PROGRESS_FAILURE) {
+        return Object.assign({}, state, {
+          error: action.error,
+        });
   }else if (action.type === ANSWER_REQUEST){
     return Object.assign({}, state, {
       loading: true
@@ -50,6 +63,16 @@ export default function questionsReducer(state = initialState, action) {
       error: action.error,
       loading: false
     });
+  }else if (action.type === FINISH_SUCCESS){
+      return Object.assign({}, state, {
+        userProgress: action.reset.solved,
+        user: action.reset.user,
+        question: action.reset.user.questions[0].qData
+      });
+  }else if (action.type === FINISH_FAILURE){
+      return Object.assign({}, state, {
+        error: action.error
+      });
   }else if(action.type === FIND_QUESTION_SUCCESS){
     return Object.assign({}, state, {
       question: action.question,

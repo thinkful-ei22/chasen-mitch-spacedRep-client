@@ -16,6 +16,18 @@ export const toggleProgress = boolean =>({
     boolean
 });
 
+export const GET_PROGRESS_SUCCESS= 'GET_PROGRESS_SUCCESS';
+export const getProgressSuccess = userProgress =>({
+    type: GET_PROGRESS_SUCCESS,
+    userProgress
+});
+
+export const GET_PROGRESS_FAILURE= 'GET_PROGRESS_FAILURE';
+export const getProgressFailure = error =>({
+    type: GET_PROGRESS_FAILURE,
+    error
+});
+
 export const ANSWER_REQUEST= 'ANSWER_REQUEST';
 export const answerRequest = ()=>({
     type: ANSWER_REQUEST
@@ -32,6 +44,17 @@ export const answerFailure = error =>({
     error
 });
 
+export const FINISH_SUCCESS= 'FINISH_SUCCESS';
+export const finishSuccess = reset =>({
+    type: FINISH_SUCCESS,
+    reset
+});
+export const FINISH_FAILURE= 'FINISH_FAILURE';
+export const finishFailure = error =>({
+    type: FINISH_FAILURE,
+    error
+});
+
 // export const SEND_SUCCESS= 'SEND_SUCCESS'  ///only for front/////
 // export const sendSuccess = userGuess =>({
 //     type: SEND_SUCCESS,
@@ -39,6 +62,37 @@ export const answerFailure = error =>({
 // });
 
 /// sending the userAnswer when click submit///// need a response with a correct: boolean, and progress
+// export const resetFinish;
+export const resetFinish = () => (dispatch, getState) => {
+    console.log('resetFinsh reached');
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions/reset`, {
+        method: 'POST',
+        headers:{
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res =>{
+        if(!res.ok){
+            return Promise.reject({
+                message:'Response Not Okay',
+                status: res.status,
+                statusText: res.statusText
+            });
+        }
+        
+        return res.json();
+    })
+    .then(result => {
+        console.log('result from reset', result);
+        return dispatch(finishSuccess(result));
+    })
+    .catch(err => {
+        console.log('ERR', err);
+        return dispatch(finishFailure(err.statusText));
+    });
+};
 
 export const sendAnswer = guess => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -120,3 +174,33 @@ export const fetchQuestion = () => (dispatch, getState) =>{
         return dispatch(findQuestionFailure(err.statusText));
     });
 };
+
+export const getProgress = () => (dispatch, getState) =>{
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions/progress`, {
+        method: 'GET',
+        headers:{
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res =>{
+        if(!res.ok){
+            return Promise.reject({
+                message:'Response Not Okay',
+                status: res.status,
+                statusText: res.statusText
+            });
+        }
+        return res.json();
+    })
+    .then(result => {
+        console.log('result from progress' , result);
+        return dispatch(getProgressSuccess(result));
+    })
+    .catch(err => {
+        console.log('ERR', err);
+        return dispatch(getProgressFailure(err.statusText));
+    });
+};
+
