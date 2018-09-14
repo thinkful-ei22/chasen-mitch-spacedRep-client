@@ -143,6 +143,9 @@ label, input {
   text-align: center;  
   margin: auto 0;
 }
+.answer-component{
+  position: relative;
+}
 .answer-form{
   padding-top: 50px;
 }
@@ -173,4 +176,12 @@ label, input {
 .progress{
   display: inline-block;
   margin-right: 10px;
+}
+.explanation{
+  line-height: 16px;
+}
+.next-btn{
+  position: absolute;
+  bottom: 10px;
+  left: 135px;
 }

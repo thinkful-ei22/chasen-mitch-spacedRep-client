@@ -32,9 +32,9 @@ class Answer extends React.Component{
         <div className='answer-component component clearfix'>
           {feedback}
           <p>Your answer: {this.state.userGuess}</p>  
-          <p>Solution:{this.props.question.answer}</p>  
-          <p>Explanation:{this.props.question.explanation}</p> 
-          <button 
+          <p>Solution:  {this.props.question.answer}</p>  
+          <p className='explanation'>Explanation: {this.props.question.explanation}</p> 
+          <button className='next-btn'
             onClick={()=> this.handleNext()}
           >
             NEXT

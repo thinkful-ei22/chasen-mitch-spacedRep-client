@@ -7,6 +7,7 @@ function Finish(props){
   return (
     <div>
       <button
+        className='reset-btn'
         onClick={()=>{
           console.log('clicked');
           props.dispatch(resetFinish())}
