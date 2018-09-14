@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {backToDash} from '../actions/questions';
+import './instructions.css';
 
 
 function Instructions(props) {
@@ -25,10 +26,10 @@ function Instructions(props) {
         Back
       </button>
     </div>
-  )
+  );
 }
 const mapStateToProps = state => ({
   instructions: state.questions.instructions
-})
+});
 
 export default connect(mapStateToProps)(Instructions);

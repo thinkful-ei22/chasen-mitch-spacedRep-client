@@ -31,7 +31,7 @@ export const answerFailure = error =>({
     error
 });
 
-export const SEND_SUCCESS= 'SEND_SUCCESS'  ///only for front/////
+export const SEND_SUCCESS= 'SEND_SUCCESS';  ///only for front/////
 export const sendSuccess = userGuess =>({
     type: SEND_SUCCESS,
     userGuess   ///correct true false, progress
@@ -41,7 +41,7 @@ export const sendSuccess = userGuess =>({
 export const sendAnswer = userGuess => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(answerRequest());
-    return fetch(`${API_BASE_URL}/api/answer`, {
+    return fetch(`${API_BASE_URL}/questions`, {
         method: 'POST',
         headers:{
             'Authorization': `Bearer ${authToken}`,
@@ -57,7 +57,7 @@ export const sendAnswer = userGuess => (dispatch, getState) => {
                 message:'Response Not Okay',
                 status: res.status,
                 statusText: res.statusText
-            })
+            });
         }
         return res.json();
     })
@@ -67,8 +67,8 @@ export const sendAnswer = userGuess => (dispatch, getState) => {
     .catch(err => {
         console.log('ERR', err);
         return dispatch(answerFailure(err.statusText));
-    })
-}
+    });
+};
 
 
 
@@ -92,7 +92,7 @@ export const findQuestionFailure = error =>({
 export const fetchQuestion = () => (dispatch, getState) =>{
     const authToken = getState().auth.authToken;
     dispatch(findQuestionRequest());
-    return fetch(`${API_BASE_URL}/api/questions`, {
+    return fetch(`${API_BASE_URL}/questions`, {
         method: 'GET',
         headers:{
             'Authorization': `Bearer ${authToken}`,
@@ -105,7 +105,7 @@ export const fetchQuestion = () => (dispatch, getState) =>{
                 message:'Response Not Okay',
                 status: res.status,
                 statusText: res.statusText
-            })
+            });
         }
         return res.json();
     })
@@ -115,5 +115,5 @@ export const fetchQuestion = () => (dispatch, getState) =>{
     .catch(err => {
         console.log('ERR', err);
         return dispatch(findQuestionFailure(err.statusText));
-    })
-}
+    });
+};
