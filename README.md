@@ -1,4 +1,4 @@
-## LEARN DATA STRUCTURES 
+## DATA STRUCTURES LEARNING TOOL 
 
 **Data Structures** This application helps to solve the problem of learning new terminology by using a spaced-repetition algorithm learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. The application allows individual users to create their own account and tracks their progress through the content. Also included is a reset button to allow the user to start back at the beginning of the content at any time and reset their progress.
 
