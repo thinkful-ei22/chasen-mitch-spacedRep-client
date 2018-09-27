@@ -1,10 +1,8 @@
 ## LEARN DATA STRUCTURES 
 
-**Data Structures** This application helps to solve the problem of learning new terminology by using a spaced-repetition algorithm learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. The application allows individual users to create their own account and tracks their progress through the content. Also included is a reset button to allow the user to start back at the beginning of the content at any time and reset their progress.
+This application helps to solve the problem of learning new terminology by using a spaced-repetition algorithm learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. The application allows individual users to create their own account and tracks their progress through the content. Also included is a reset button to allow the user to start back at the beginning of the content at any time and reset their progress.
 
-## Deployed Version
-
-The deployed version of our app can be found here:
+## Deployed Version & Repos
 
 **https://chasen-mitch-spacedrep-client.herokuapp.com**
 
@@ -14,16 +12,19 @@ Client-side repo:
 Server-side repo:
 **https://github.com/thinkful-ei22/chasen-mitch-spacedRep-server**
 
-<img src="" width=100%>
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/Screenshot%202018-09-27%2015.06.43.png" width=100%>
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/Screenshot%202018-09-27%2013.52.24.png" width=100%>
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/Screenshot%202018-09-27%2013.54.18.png" width=100%>
+
 
 
 ## Tech Stack
 
-####`Front-end technologies`
+#### Front-end technologies
 
 * ReactJs, Redux, CSS
 
-####`Server technologies​`
+#### Server technologies​
 
 * NodeJs, JWT auth, Express
 
@@ -31,11 +32,11 @@ Server-side repo:
 
 * Mongo/Mongoose
 
-#### `Hosting/SaaS`
+#### Hosting/SaaS
 
 * Heroku (client & api)
 
-####`​Development Environment`
+#### ​Development Environment
 
 * Managed through Trello
 
@@ -43,16 +44,16 @@ Server-side repo:
 
 * Postman
 
-####`Data Persistence`
+#### Data Persistence
 
 * MongoDB
 
-####`Hosting`
+#### Hosting
 
 *	Heroku (client & api)
 
 ## Additional Features Coming Soon
 
-*Detailed progress summary
-*Leaderboard with top scoring users
-*Loyalty rewards for high Sscores 
+* Detailed progress summary
+* Leaderboard with top scoring users
+* Loyalty rewards for high Sscores 
