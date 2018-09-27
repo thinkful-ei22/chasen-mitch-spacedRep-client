@@ -4,6 +4,7 @@ This application helps to solve the problem of learning new terminology by using
 
 ## Deployed Version & Repos
 
+Deployed Version:
 **https://chasen-mitch-spacedrep-client.herokuapp.com**
 
 Client-side repo:
@@ -21,35 +22,20 @@ Server-side repo:
 ## Tech Stack
 
 #### Front-end technologies
-
 * ReactJs, Redux, CSS
-
 #### Server technologies​
-
 * NodeJs, JWT auth, Express
-
 #### Data Persistence
-
 * Mongo/Mongoose
-
 #### Hosting/SaaS
-
 * Heroku (client & api)
-
 #### ​Development Environment
-
 * Managed through Trello
-
 * Sublime3, VS Code
-
 * Postman
-
 #### Data Persistence
-
 * MongoDB
-
 #### Hosting
-
 *	Heroku (client & api)
 
 ## Additional Features Coming Soon
