@@ -14,7 +14,6 @@ export function LandingPage(props) {
         <div className="home">
             <div className='landing-text'>
                 <h3>Are You Interested In Learning Data Structures?! With our spaced-repetition algorithm you can learn data structures in just a few minutes a day</h3>
-                <h4></h4>
             </div>
             <LoginForm />
             <div className='create-account-btn'>
