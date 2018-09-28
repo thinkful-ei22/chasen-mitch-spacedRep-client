@@ -12,9 +12,14 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h4>Learn Data Structures in just a few minutes a day</h4>
+            <div className='landing-text'>
+                <h3>Are You Interested In Learning Data Structures?! With our spaced-repetition algorithm you can learn data structures in just a few minutes a day</h3>
+                <h4></h4>
+            </div>
             <LoginForm />
-            <Link to="/register">Create Account</Link>
+            <div className='create-account-btn'>
+                <Link to="/register">Create Account</Link>
+            </div>
         </div>
     );
 }

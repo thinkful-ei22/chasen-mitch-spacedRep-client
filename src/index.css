@@ -17,11 +17,12 @@ body {
   color: #f8f8f8;
   background: linear-gradient(to bottom, var(--gunmetal) 0%,var(--independence) 50%,var(--gunmetal) 100%);  
 }
-button {
+button, .create-account-btn a {
   background: linear-gradient(to bottom, var(--independence) 0%,#828c95 36%,var(--independence) 100%);
   border-radius: 50px;
   color: #f8f8f8;
   border-color: var(--gunmetal);
+  padding: 8px;
 }
 h1 { 
   color: #ffffff; 
@@ -91,7 +92,7 @@ a:-webkit-any-link {
   border: black solid 1px;
   width: 300px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 50px;
   padding:30px
 }
 label, input {
@@ -115,6 +116,12 @@ label, input {
   right: 1em;
   top: 1.2em;
 }
+
+.landing-text{
+  max-width: 450px;
+  margin: auto;
+}
+
 .dashboard{
   text-align: center;
   /* border: red solid 1px; */
@@ -187,4 +194,22 @@ label, input {
 }
 .back-btn{
   margin-bottom: 24px;
+}
+.create-account-btn{
+  margin-top:15px;
+}
+
+@media screen and (max-width: 470px){
+  h1 { 
+    font-size: 50px; 
+    font-weight: 800; 
+    line-height: 60px; 
+  }
+}
+@media screen and (max-width: 380px){
+  h1 { 
+    font-size: 42px; 
+    font-weight: 800; 
+    line-height: 50px; 
+  }
 }
