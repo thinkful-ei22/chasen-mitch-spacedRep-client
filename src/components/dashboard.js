@@ -34,8 +34,7 @@ class Dashboard extends React.Component {
             return(<Instructions />)
         }
         else{
-            return (
-                
+            return (  
                 <div className="dashboard">
                     <div className='instruction-count'>
                         <div className='instruction-btn clearfix'>
@@ -47,7 +46,7 @@ class Dashboard extends React.Component {
                     <Answer />
                     <Finish />
                 </div>
-        )};
+        );}
     };
 };
 

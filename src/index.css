@@ -8,6 +8,12 @@
 *{
   box-sizing: border-box;
 }
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -15,7 +21,7 @@ body {
   text-align: center;
   margin: auto;
   color: #f8f8f8;
-  background: linear-gradient(to bottom, var(--gunmetal) 0%,var(--independence) 50%,var(--gunmetal) 100%);  
+  background-color: var(--gunmetal);
 }
 button, .create-account-btn a {
   background: linear-gradient(to bottom, var(--independence) 0%,#828c95 36%,var(--independence) 100%);
@@ -30,7 +36,7 @@ h1 {
   font-size: 62px; 
   font-weight: 800; 
   line-height: 72px; 
-  margin: 24px 0; 
+  margin: 0px; 
   text-align: center; 
   text-transform: uppercase;
 }
@@ -62,6 +68,11 @@ a {
 a:hover { 
   color: #1c1c1c; 
   text-decoration: underline; 
+}
+
+button, a {
+  box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 /*p {
   -webkit-margin-before: 0;
@@ -121,8 +132,11 @@ label, input {
 }
 
 .landing-text{
-  max-width: 450px;
-  margin: auto;
+  max-width: 600px;
+  background: linear-gradient(to bottom, #7d7e7d 0%,#0e0e0e 100%);
+  box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 .dashboard{
@@ -152,9 +166,18 @@ label, input {
   height: 40px;
   text-align: center;  
   margin: auto 0;
+  margin-top: 10px;
+}
+.question-component {
+  box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 5px;
 }
 .answer-component{
   position: relative;
+  box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 5px;
 }
 .answer-form{
   padding-top: 50px;
@@ -177,6 +200,7 @@ label, input {
   border: black solid 1px;
   width: 60%;
   margin: auto;
+  margin-top: 10px;
 }
 .instruction-list li{
   list-style-type: none;
@@ -200,8 +224,20 @@ label, input {
 }
 .create-account-btn{
   margin-top:15px;
+  margin-bottom: 15px;
 }
-
+.reset-btn {
+  margin-bottom: 10px;
+}
+.header-bar {
+  background: linear-gradient(to bottom, #7d7e7d 0%,#0e0e0e 100%);
+  box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.invis {
+  height: 20px;
+  color: transparent;
+}
 @media screen and (max-width: 470px){
   h1 { 
     font-size: 50px; 
@@ -214,5 +250,16 @@ label, input {
     font-size: 42px; 
     font-weight: 800; 
     line-height: 50px; 
+  }
+}
+
+@media only screen and (min-width: 640px) {
+
+  body {
+  background-image: url(https://s3.us-east-2.amazonaws.com/mg-icons/lightning.jpg);
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   }
 }

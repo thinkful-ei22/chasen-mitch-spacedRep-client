@@ -25,13 +25,14 @@ class HeaderBar extends React.Component {
         }
         
         return (
-            <div className="header-bar">
+            <div id="header-bar" className="header-bar">
                 <div className='top-header'>
                     {greeting}
                     {logOutButton}
                 </div>
                 <div className='title'>
                     <h1>Data Structures</h1>
+                    <h1 className="invis">_</h1>
                 </div>
             </div>
         );
