@@ -6,6 +6,7 @@ This application helps to solve the problem of learning new terminology by using
 
 Deployed Version:
 **https://chasen-mitch-spacedrep-client.herokuapp.com**
+from Mitch portfolio: **https://datastructures.netlify.com/**
 
 Client-side repo:
 **https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client**
