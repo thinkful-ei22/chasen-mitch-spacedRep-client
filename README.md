@@ -13,10 +13,10 @@ Client-side repo:
 Server-side repo:
 **https://github.com/thinkful-ei22/chasen-mitch-spacedRep-server**
 
-<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/Screenshot%202018-09-27%2015.06.43.png" width=100%>
-<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/Screenshot%202018-09-27%2013.52.24.png" width=100%>
-<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/Screenshot%202018-09-27%2013.54.18.png" width=100%>
-
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/sr-login.png" width=100%>
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/sr-instructions.png" width=100%>
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/sr-question.png" width=100%>
+<img src="https://github.com/thinkful-ei22/chasen-mitch-spacedRep-client/blob/master/screenshots/sr-answer.png" width=100%>
 
 
 ## Tech Stack
