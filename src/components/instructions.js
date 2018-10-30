@@ -8,7 +8,7 @@ import './float-grid.css';
 function Instructions(props) {
   return(
     <div className='instructions row'>
-      <h2 className="col-12">HOW TO PLAY</h2>
+      <h2 className="how col-12">HOW TO PLAY</h2>
       <h4 className="instruction-list col-12">
         Upon Login you will be given your first question.
         Take a guess at the question and click "Submit Answer"

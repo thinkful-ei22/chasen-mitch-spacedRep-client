@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {sendAnswer, fetchQuestion} from '../actions/questions';
 import './answer.css';
+import './float-grid.css';
 
 class Answer extends React.Component{
   constructor(props){
@@ -29,11 +30,11 @@ class Answer extends React.Component{
 
     if(this.props.answer){
       return(
-        <div className='answer-component component clearfix'>
+        <div className='answer-component component clearfix row'>
           {feedback}
-          <p>Your answer: {this.state.userGuess}</p>  
-          <p>Solution:  {this.props.question.answer}</p>  
-          <p className='explanation'>Explanation: {this.props.question.explanation}</p> 
+          <p className="col-12">Your answer: {this.state.userGuess}</p>  
+          <p className="col-12">Solution:  {this.props.question.answer}</p>  
+          <p className='explanation col-12'>Explanation: {this.props.question.explanation}</p> 
           <button className='next-btn'
             onClick={()=> this.handleNext()}
           >

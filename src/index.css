@@ -219,9 +219,7 @@ label, input {
   line-height: 16px;
 }
 .next-btn{
-  position: absolute;
-  bottom: 10px;
-  left: 135px;
+ margin-top: 5px;
 }
 .back-btn{
   margin-bottom: 24px;
@@ -241,6 +239,9 @@ label, input {
 .invis {
   height: 20px;
   color: transparent;
+}
+.how {
+  margin-top: 10px;
 }
 @media screen and (max-width: 470px){
   h1 { 
