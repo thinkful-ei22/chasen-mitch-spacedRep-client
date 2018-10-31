@@ -20,7 +20,7 @@ class HeaderBar extends React.Component {
                 <button onClick={() => this.logOut()}>Log out</button>
             );
             greeting = (
-                <h3>Hi, {this.props.user.firstName}</h3>
+                <h3 className='greeting'>Hi, {this.props.user.firstName}</h3>
             );
         }
         

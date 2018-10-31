@@ -8,12 +8,10 @@
 *{
   box-sizing: border-box;
 }
-
 body, html {
     height: 100%;
     margin: 0;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -69,7 +67,6 @@ a:hover {
   color: #1c1c1c; 
   text-decoration: underline; 
 }
-
 button, a {
   font: 400 15px/1.5 Raleway;
   box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
@@ -100,7 +97,6 @@ a:-webkit-any-link {
 .logout-btn{
   margin: 5px 5px 0 0;
 }
-
 .flag{
   width:50px;
   display: inline-block;
@@ -134,7 +130,6 @@ label, input {
   right: 1em;
   top: 1.2em;
 }
-
 .landing-text{
   max-width: 600px;
   background: linear-gradient(to bottom, #7d7e7d 0%,#0e0e0e 100%);
@@ -142,7 +137,9 @@ label, input {
   border-radius: 10px;
   margin-top: 10px;
 }
-
+.greeting{
+  margin-top: 22px;
+}
 .dashboard{
   text-align: center;
   /* border: red solid 1px; */
@@ -151,7 +148,7 @@ label, input {
   display: inline-block;
   border: solid black 1px;
   width: 320px;
-  height: 320px;
+  height: 350px;
   text-align: center;  
   margin: auto;
 }
@@ -171,6 +168,7 @@ label, input {
   text-align: center;  
   margin: auto 0;
   margin-top: 10px;
+  overflow: hidden;
 }
 .question-component {
   box-shadow: 0vw 1vh 5vh 1px rgba(0, 0, 0, 0.5);
@@ -241,13 +239,19 @@ label, input {
   color: transparent;
 }
 .how {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: -5px;
 }
 @media screen and (max-width: 470px){
   h1 { 
     font-size: 50px; 
     font-weight: 800; 
     line-height: 60px; 
+  }
+}
+@media screen and (max-width: 700px){
+  .instructions{
+    width:90%;
   }
 }
 @media screen and (max-width: 380px){
@@ -257,9 +261,7 @@ label, input {
     line-height: 50px; 
   }
 }
-
 @media only screen and (min-width: 640px) {
-
   body {
   background-image: url(https://s3.us-east-2.amazonaws.com/mg-icons/lightning.jpg);
   height: 100%; 
